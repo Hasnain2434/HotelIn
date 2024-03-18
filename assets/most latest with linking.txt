@@ -1,0 +1,243 @@
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  Dimensions,
+  Settings,
+  ImageBackground,
+} from "react-native";
+import { TouchableOpacity } from "react-native";
+import {
+  backgroundColor,
+  borderColor,
+  color,
+} from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
+import { TextInput } from "react-native";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Feather from "react-native-vector-icons/Feather";
+import { Bold, Home } from "react-feather";
+import Hotels from "./Hotels";
+import Payment from "./Payment";
+import Order from "./Order";
+
+interface MainMenuScreenProps
+{
+  navigation:any;
+}
+const MainMenu=(props:MainMenuScreenProps)=> {
+  const lookforhotels=()=>props.navigation.navigate("Hotels")
+  const paynavigate=()=>props.navigation.navigate("Payment")
+  const ordernavigate=()=>props.navigation.navigate("Order")
+  const loggedout=()=>props.navigation.navigate("LogIn")
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.logo}
+        source={require("./assets/animation_300_kxqdk0d7.gif")}
+      />
+      <Text style={styles.Main}>Home</Text>
+      <View style={styles.getstarted}>
+        <View style={styles.look}>
+          <TouchableOpacity onPress={lookforhotels}>
+            <Text style={styles.looktxt}>Look for Hotels</Text>
+            <Image
+              style={styles.lookpng}
+              source={require("./assets/output-onlinepngtools.png")}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.look1}>
+          <TouchableOpacity  onPress={paynavigate}>
+            <Text style={styles.look1txt}>Go for Payment</Text>
+            <Image
+              style={styles.look1png}
+              source={require("./assets/animation_200_kxqgkk0l.gif")}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.look2}>
+          <TouchableOpacity  onPress={ordernavigate}>
+            <Text style={styles.look2txt}>Room Services</Text>
+            <Image
+              style={styles.look2png}
+              source={require("./assets/waiter.png")}
+            />
+          </TouchableOpacity>
+        </View>
+
+       
+      </View>
+
+      <View style={styles.menubar}>
+        <TouchableOpacity>
+          <Image source={require("./assets/menu.png")} style={styles.menupng} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.logout}>
+        <TouchableOpacity onPress={loggedout}>
+          <Image
+            source={require("./assets/log-out1.png")}
+            style={styles.logoutpng}
+          />
+        </TouchableOpacity>
+      </View>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+export default MainMenu;
+const styles = StyleSheet.create({
+  container: {
+    flex: 0,
+    backgroundColor: "#ffa500",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  getstarted: {
+    backgroundColor: "#fff",
+    borderTopLeftRadius: 60,
+    borderTopRightRadius: 50,
+    top: 50,
+    height: 600,
+    width: 414,
+  },
+  Main: {
+    bottom: 50,
+    textAlign: "center",
+    left: 5,
+    color: "black",
+    alignContent: "center",
+    justifyContent: "center",
+    fontSize: 40,
+    fontWeight: "bold",
+  },
+  logo: {
+    resizeMode: "center",
+    height: 350,
+    width: 250,
+    top: 80,
+    alignContent: "center",
+    justifyContent: "center",
+    left: 10,
+  },
+  look: {
+    backgroundColor: "black",
+    width: 320,
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    left: 48,
+    top: 20,
+    height: 100,
+    borderRadius: 30,
+  },
+  looktxt: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 24,
+    top: 125,
+    left: -18,
+  },
+  lookpng: {
+    resizeMode: "center",
+    left: 100,
+    top: -18,
+  },
+
+  look1: {
+    backgroundColor: "black",
+    width: 320,
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    left: 48,
+    top: 60,
+    height: 100,
+    borderRadius: 30,
+  },
+  look1txt: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 24,
+    top: 100,
+    left: -42,
+  },
+  look1png: {
+    resizeMode: "center",
+    left: 100,
+    top: -18,
+  },
+
+  look2: {
+    backgroundColor: "black",
+    width: 320,
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    left: 48,
+    top: 100,
+    height: 100,
+    borderRadius: 30,
+  },
+  look2txt: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 24,
+    top: 50,
+    left: -48,
+  },
+  look2png: {
+    resizeMode: "center",
+    left: 150,
+    top: -18,
+    width: 100,
+    height: 100,
+  },
+
+  menubar: {
+    flex: 0,
+    width: 50,
+    height: 50,
+    right: 175,
+    bottom: 900,
+    borderWidth: 0,
+  },
+  menupng: {
+    resizeMode: "center",
+    width: 40,
+    height: 40,
+  },
+
+  logout: {
+    flex: 0,
+    width: 50,
+    height: 50,
+    left: 187,
+    bottom: 950,
+    borderWidth: 0,
+  },
+  logoutpng: {
+    resizeMode: "center",
+    right: 0,
+    width: 40,
+    height: 40,
+    top: 4,
+  },
+
+ 
+  bgimage: {
+    top: 50,
+    width: 700,
+    height: 450,
+    resizeMode: "stretch",
+    justifyContent: "center",
+    opacity: 3,
+  },
+});
